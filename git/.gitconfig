@@ -1,0 +1,21 @@
+[color]
+	status = auto
+	branch = auto
+	interactive = auto
+	diff = auto
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+[user]
+	email = lachtan@fnet.cz
+	name = Martin Blazik
+[push]
+	default = simple

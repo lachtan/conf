@@ -1,0 +1,98 @@
+" ~/.vimrc
+" lachtani konfigurace VIMu
+" 3.12.2004
+
+set nocompatible
+" nezalamuje delsi radky
+set nowrap
+" ukazuje listu s infem
+set ruler
+" ukazuje editacni rezim
+set showmode
+" zobraz prave psany prikaz
+set showcmd
+" dodrzuje odsazeni
+set autoindent
+" zapnuta syntaxe
+syntax on
+" sirka tabulatoru
+set tabstop=4
+" sirka posuvu
+set shiftwidth=4
+" hledej v aktualnim adresari konfiguraci pro vim
+set exrc
+" bezpecne nacitani konfigurace
+set secure
+" ukazuje parove zavorky
+set showmatch
+" kolik radku vzdy zobrazit z minule obrazovky [so]
+set scrolloff=0
+" svetle modry komentar
+highlight Normal guibg=black guifg=white ctermbg=black ctermfg=white
+" mapuje v prikazovem rezimu klavesy na jine kvuli spatne klavesnici
+set langmap=ì2,¹3,è4,ø5,¾6,ý7,á8,í9,é0,\":,-/,_?
+" editovany soubor se pri kazde prilezitosti uklada
+set autowrite
+" vytvaret zalohy souboru
+set nobackup
+" zalozni soubory ukladat do adresare
+set backupdir=.,~/.vim/backup
+" kam ukladat docasne soubory
+set directory=.,~/tmp,/tmp
+" pri chybne akci se zepta co se ma dit dale
+set confirm
+" kolik se ma zachovavat informaci do dalsiho spusteni
+set viminfo='50,\"500
+" pamatuje si pozici kurzoru z posledni editace
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"z." | endif 
+" neposkakuje v textu pri zapisu hledaneho slova
+set noincsearch
+" zapni zvyrazneni hledanych slov
+set hlsearch
+" ignoruj velikost pismen pri vyhledavani [ic]
+set ignorecase
+" pro doplneni pouzij tabulator
+set wildchar=<Tab>
+" pokud je vice nabidek zobraz menu
+set wildmenu
+" zpusob vyberu
+set wildmode=longest:full,full
+" vzdy zobrazovat status line
+set laststatus=2
+" co ve status line zobrazovat
+set statusline=%n:\ %<%f\ %y%m%r%=[%b,0x%B]\ \ %l/%L,%v-%c\ \ %p%%
+" jak dlouho cekat na dokonceni textoveho makra v ms
+set timeoutlen=300
+" spravne chovani backspace
+set backspace=2
+" po napsani "dts" v insert modu vlozi aktualni datum a cas
+" http://vim.wikia.com/wiki/Insert_current_date_or_time
+:inoremap dts =strftime("%A %-d.%-m. %H:%M")
+
+" Poznamky
+" / - normalni hledani
+" ? - zpetne hledani
+" % - skoci na parovou zavorku
+" ]} - skok na konec bloku
+"
+" Prevod na mezery
+" :set expandtab
+" :retab
+" Prevod na taby
+" :set noexpandtab
+" :retab
+" 
+" Zobraz taby a konce radku
+" :set list
+" Zobraz cisla radek
+" :set number
+" 
+" Docasne zrusi zvyrazneni vyhledavani
+" :nohls
+"
+" Makra
+" napise <STRONG></STRONG> a kurzor umisti doprostred
+" makro se aktivuje napsanim ,bb v editacnim rezimu
+" imap ,bb <STRONG></STRONG><Esc>F<i
+" 
+
