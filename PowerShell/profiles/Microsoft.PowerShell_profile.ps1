@@ -113,6 +113,16 @@ function ToHash([ScriptBlock] $scriptBlock)
     }
 }
 
+function Get-ImageInfo($fileName)
+{
+	$image = [System.Drawing.Image]::FromFile((ls $fileName))
+	New-Object PSObject -Property @{ 
+		Height = $image.Height
+		Width = $image.Width
+	}
+}
+
+
 Set-Alias grep C:\cygwin64\bin\grep
 Set-Alias less C:\cygwin64\bin\less
 Set-Alias awk C:\cygwin64\bin\awk
